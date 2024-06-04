@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import '../../../Infrastructure/models/list.dart';
+import 'package:signup/Infrastructure/models/list.dart';
 
 abstract class GroceryListState extends Equatable {
   const GroceryListState();

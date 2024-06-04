@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import'../../../Infrastructure/models/user.dart';
+import 'package:signup/Infrastructure/models/user.dart';
 class AuthState {
   final bool isLoading;
   final bool isLoggedIn;

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import '/Infrastructure/models/user.dart';
+import 'package:signup/Infrastructure/models/user.dart';
 abstract class AuthEvent {}
 
 class SignUpEvent extends AuthEvent {

@@ -10,7 +10,7 @@ import '../../../Infrastructure/repositories/Auth_repository.dart';
 import '../../../Application/Usecase/login_usecase.dart';
 import 'package:http/http.dart' as http;
 import '../../../Infrastructure/api_service.dart';
-import '../../../Infrastructure/models/user.dart';
+import 'package:signup/Infrastructure/models/user.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final ApiService _apiService;
