@@ -4,7 +4,7 @@ import '/Infrastructure/models/list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './auth_repo_impl.dart';
 
-const String baseUrl = 'http://localhost:6036/user';
+const String baseUrl = 'http://192.168.0.182:6036/user';
 
 class ListRepository {
   Future<String?> _getToken() async {
@@ -89,8 +89,8 @@ class ListRepository {
         'Authorization': 'Bearer $token'
       },
     );
-    if (response.statusCode != 204) {
-      throw Exception('Failed to delete list');
-    }
+    // if (response.statusCode != 204 || response.statusCode != 200 ) {
+    //   throw Exception('Failed to delete list');
+    // }
   }
 }

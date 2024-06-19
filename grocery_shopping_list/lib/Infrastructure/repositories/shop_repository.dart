@@ -2,7 +2,7 @@ import 'dart:convert';
 import '/Infrastructure/models/shop.dart';
 import 'package:http/http.dart' as http;
 class ShopRepository {
-  final String baseUrl = 'http://localhost:6036/shop';
+  final String baseUrl = 'http://192.168.0.182:6036/shop';
 
   Future<List<Shop>> fetchShops() async {
     print('Fetching shops...');

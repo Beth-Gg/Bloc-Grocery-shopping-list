@@ -14,13 +14,13 @@ class ShopBloc extends Bloc<ShopEvent, ShopState> {
   }
 
 void _onLoadShops(LoadShops event, Emitter<ShopState> emit) async {
-  emit(ShopLoading()); // Yield a loading state while fetching shops
+  emit(ShopLoading()); 
   try {
     final List<Shop> shops = await _shopRepository.fetchShops();
     emit(ShopLoaded(shops: shops));
   } catch (e) {
-    print('Error fetching shops: $e'); // Add this line
-    emit(ShopError(message: e.toString())); // Emit the error state
+    print('Error fetching shops: $e'); 
+    emit(ShopError(message: e.toString())); 
   }
 }
 

@@ -21,20 +21,27 @@ class ApiService {
     if (username == null || password == null || role == null) {
       throw Exception('Username, password, and role are required');
     }
-    final url = 'http://localhost:6036/user/signup';
-    final body = {
+    final url = 'http://192.168.0.182:6036/user/signup';
+    final body = jsonEncode({
       'username': username,
       'password': password,
       'role': role,
-    };
-    final response = await http.post(Uri.parse(url), body: body);
+    });
+    final response = await http.post(Uri.parse('http://192.168.0.182:6036/user/signup'), 
+    headers: {'Content-Type': 'application/json'},
+    body: jsonEncode({
+      'username': username,
+      'password': password,
+      'role': role,
+    })
+    );
     return response;
   }
 
   Future<http.Response> login(String? username, String? password) async {
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:6036/auth/login'),
+        Uri.parse('http://192.168.0.182:6036/auth/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );

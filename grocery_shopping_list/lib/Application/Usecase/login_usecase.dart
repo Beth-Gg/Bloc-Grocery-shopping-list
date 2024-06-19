@@ -36,7 +36,7 @@ class SignUpUseCase {
   Future<void> call(String username, String password, String role, BuildContext context) async {
     try {
       final response = await http.post(
-        Uri.parse('http://localhost:6036/user/signup'), // Replace with your API endpoint
+        Uri.parse('http://192.168.0.182:6036/user/signup'), // Replace with your API endpoint
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
         },
@@ -65,7 +65,7 @@ class LogoutUseCaseImpl implements LogoutUseCase {
 
   @override
   Future<void> call() async {
-    // Implement the logout logic here
+    
     await _authRepository.logout();
   }
 }

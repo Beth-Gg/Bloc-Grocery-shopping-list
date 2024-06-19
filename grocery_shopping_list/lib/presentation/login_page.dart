@@ -19,16 +19,9 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Login Screen'),
-      //   backgroundColor: Colors.deepPurple,
-      // ),
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state.isLoggedIn) {
-            // Navigator.pushReplacement(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => ShopPage()),
             context.go('/main');
           } else if (state.error != null) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -135,10 +128,6 @@ class LoginScreen extends StatelessWidget {
                             Text("Don't have an account?"),
                             TextButton(
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(builder: (context) => SignUpScreen()),
-                                // );
                                 context.go('/');
                               },
                               child: Text(

@@ -37,6 +37,6 @@ class ListUsecaseImpl implements ListUsecase {
   }
   @override
   Future<List<GroceryList>> getLists() async {
-    return _listRepository.fetchAllLists(); // Implement the getLists method
+    return _listRepository.fetchAllLists(); 
   }
 }

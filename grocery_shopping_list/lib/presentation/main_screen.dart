@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:signup/presentation/List_page.dart';
 // import 'bottom_navigation_cubit.dart';
 import 'shop_page.dart';
 import 'List_page.dart';
 import '../Application/bloc/BottomNav/bottom_navigation_cubit.dart';
 import './login_page.dart';
+import '../Infrastructure/repositories/auth_repo_impl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../main.dart';
 
 class MainScreen extends StatelessWidget {
   final List<Widget> _pages = [
@@ -29,11 +33,13 @@ class MainScreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
+                  Navigator.push(
                         context,
                         MaterialPageRoute(builder: (BuildContext context) => LoginScreen()),
-                        (route) => false, 
-                      );                },
+                        // (route) => false,
+                      );
+                  // context.go('/login');
+                },
                 icon: Icon(Icons.logout))
           ],
         ),
@@ -64,7 +70,7 @@ class MainScreen extends StatelessWidget {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (BuildContext context) => LoginScreen()),
-      (route) => false, 
+      (route) => false,
     );
-  }  
+  }
 }

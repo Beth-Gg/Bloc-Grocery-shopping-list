@@ -156,37 +156,37 @@ class SignUpForm extends StatelessWidget {
                       ElevatedButton(
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
-                            try {
-                              final response = await ApiService().signUp(
-                                usernameController.text,
-                                passwordController.text,
-                                context.read<RoleBloc>().state.isAdmin
-                                    ? 'admin'
-                                    : 'user',
-                              );
-                              if (response.statusCode == 201) {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginScreen(),
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        'Sign up failed. Please try again.'),
-                                  ),
-                                );
-                              }
-                            } catch (e) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content:
-                                      Text('Sign up failed. Please try again.'),
-                                ),
-                              );
-                            }
+                            final response = await ApiService().signUp(
+                              usernameController.text,
+                              passwordController.text,
+                              context.read<RoleBloc>().state.isAdmin
+                                  ? 'admin'
+                                  : 'user',
+                            );
+
+                            context.go('/login');
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ),
+                            );
+                            //   if (response.statusCode == 201 || response.statusCode == 200 ) {
+                            //     Navigator.pushReplacement(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //         builder: (context) => LoginScreen(),
+                            //       ),
+                            //     );
+                            //   }
+                            //  else {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     SnackBar(
+                            //       content:
+                            //           Text('Sign up failed. Please try again.'),
+                            //     ),
+                            //   );
+                            // }
                           }
                         },
                         style: ElevatedButton.styleFrom(

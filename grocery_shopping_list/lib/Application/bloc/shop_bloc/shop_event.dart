@@ -11,7 +11,7 @@ class LoadShops extends ShopEvent {}
 class ToggleItemCheckbox extends ShopEvent {
   final String shopName;
   final String item;
-  final bool isChecked; // Add this property
+  final bool isChecked; 
 
   ToggleItemCheckbox({required this.shopName, required this.item, required this.isChecked});
 }
